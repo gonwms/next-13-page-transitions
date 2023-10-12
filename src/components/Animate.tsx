@@ -1,26 +1,27 @@
 "use client";
 
-import { PropsWithChildren, useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context";
 
-export function useLayoutRouterContext() {
-  return useContext(LayoutRouterContext);
+interface IsProps {
+  children: React.ReactNode;
 }
 
-function FrozenRouter(props: PropsWithChildren<{}>) {
-  const context = useLayoutRouterContext();
+function FrozenRouter({ children }: IsProps) {
+  const context = useContext(LayoutRouterContext);
   const frozen = useRef(context).current;
+  console.log(frozen);
 
   return (
     <LayoutRouterContext.Provider value={frozen}>
-      {props.children}
+      {children}
     </LayoutRouterContext.Provider>
   );
 }
 
-export function Animate({ children }: PropsWithChildren) {
+export function Animate({ children }: IsProps) {
   const pathname = usePathname();
 
   const onTheRight = { x: "100%" };
@@ -38,7 +39,7 @@ export function Animate({ children }: PropsWithChildren) {
         exit={onTheLeft}
         transition={transition}
         style={{
-          background: "#98FC99",
+          // background: "#98FC99",
           height: "100%",
           width: "100%",
           display: "flex",

@@ -1,10 +1,9 @@
 import "./global.css";
 
-import { PropsWithChildren } from "react";
 import Link from "next/link";
 import { Animate } from "../components/Animate";
 
-export default function Layout({ children }: PropsWithChildren) {
+export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html>
       <body>

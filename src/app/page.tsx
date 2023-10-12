@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div
       style={{
-        background: "#98FC99",
+        background: "#e098fc",
         height: "100%",
         width: "100%",
         display: "flex",
@@ -10,7 +10,7 @@ export default function Home() {
         alignItems: "center",
       }}
     >
-      <div style={{ fontSize: "100px", fontWeight: "bold" }}>Home</div>
+      <div style={{ fontSize: "100px", fontWeight: "bold" }}>ola</div>
     </div>
   );
 }
